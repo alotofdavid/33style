@@ -1,1 +1,48 @@
-
+.container {
+				width: 80%;
+				margin: auto;
+			}
+            
+			.sans-serif {
+				font-family: 'sans-serif', arial, serif;
+			}
+			
+			input {
+				width: 75%;
+				height: 30px;
+				margin: 5px 0px 15px 0px;
+			}
+            
+			.footer {
+            	position: aboslute;
+                bottom: 0px;
+				width: 100%;
+				height: 50px;
+				background: #bbb;
+				font-size: 20px;
+				vertical-align: middle;
+				line-height: 50px;
+				text-align: center;
+			}
+			
+			.box {
+           			text-align: center;
+                    font-size: 15px
+      			}
+                
+			.box2 {
+           			text-align: center;
+                    font-size: 30px
+      			}
+                
+            .checkboxFalse {
+            		text-align: center;
+                    color: red;
+   					width: 4%;
+                }    
+                
+            .checkboxTrue { 
+            		text-align: center;
+                    color: green;
+                    width: 4%;
+				}	
