@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+	<div class="container">
+			<h3>Press Space to generate a case from your selected sets!</h3>
+		</div>
+        
+		<div class="box2">
+			<input type="button" id="yesorno" value="Always show algorithm" onclick="yesorno()"></input>
+		</div>  
+        
+        <div class="box2" "sans-serif" id="scramble">
+        	<h1 id="case">??</h1>
+        </div>
+	
+		<div class="box">
+			<h1 id="comm">Select a set</h1>
+    	</div>
+            
+		<div class="box" id="checkboxes">
+		</div>
+        
+        <div class="box" id="prompted">
+		</div>
+        
+        <div class="box2">
+        <input type="button" id="submitscheme" value="Submit letterscheme" onclick="alphabet.forEach(createpairs)"></input>
+		</div>
 
+    <div class="footer" id="footer">
+			<p>2018, MattheoDW</p>
+		</div>
+	
+	<script src="main.js"></script>
+  	</body>
+</html>
