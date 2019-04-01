@@ -99,12 +99,21 @@ var j;
 else {
 	y.className = "checkboxFalse"
 var k;
-	for(var k = letterpairs.length - 1; k >= 0; k--) {
-    	if(letterpairs[k].charAt(0) == document.getElementById(p + "x").value) {
-       		letterpairs.splice(k, 1);
+var l;
+var m;
+    	for (k = 0; k < alphabet.length; k++) {
+    		if (alphabet[k] == p) {
+ 			for (l = (20 * k); l < (20 * k + 20); l++) {
+				for (m = 0; m < letterpairs.length; m++) {
+                			if (letterpairs[m] == allpairs[l]) {
+                    				letterpairs.splice(m, 1);
+                    			}
+                		}
+            
+			}
+    		} 
     	}
 	}
-}
 }
 
 //get random pairs
