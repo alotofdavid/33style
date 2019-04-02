@@ -1,5 +1,7 @@
 var letterpairs = []
 var allpairs = []
+var review = false;
+var reviewIndex;
 
 //alphabet is positions
 var alphabet = ["UB", "UR", "UL", "LU", "LF", "LD", "LB", "FR", "FD", "FL", "RU", "RB", "RD", "RF", "BU", "BL", "BD", "BR", "DF", "DR", "DB", "DL"];
@@ -83,6 +85,8 @@ function createpairs(value) {
 
 // selectSet
 function Select(p) {
+   // exit review mode when changing target selections
+   review = false;
 var y = document.getElementById(p)
 if (y.className == "checkboxFalse") {
 	y.className = "checkboxTrue"
@@ -116,10 +120,60 @@ var m;
 	}
 }
 
+// Review mode iterates through each target once in a random order.
+function startreviewmode() {
+   if (letterpairs.length == 0) {
+      alert("Select set(s) before starting review mode");
+   } else {
+      reviewIndex = 0;
+      review = true;
+      letterpairs = shuffle(letterpairs);
+   }
+}
+
+// Fisher-yates shuffle implementation.
+function shuffle(array) {
+  var copy = [], n = array.length, i;
+
+  // While there remain elements to shuffle…
+  while (n) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * array.length);
+
+    // If not already shuffled, move it to the new array.
+    if (i in array) {
+      copy.push(array[i]);
+      delete array[i];
+      n--;
+    }
+  }
+
+  return copy;
+}
+
+
 //get random pairs
 function showpair() {
-document.getElementById("case").innerHTML = letterpairs[Math.floor(Math.random() * letterpairs.length)]
-  
+   // If we are reviewing, choose the next in the review list.
+   if (review) {
+      // If we're done reviewing, print a message and exit review mode.
+      if (reviewIndex == letterpairs.length) {
+         document.getElementById("reviewstatus").innerHTML =
+            "Finished review of " + letterpairs.length + " comms, starting random mode now.";
+         review = false;
+         document.getElementById("case").innerHTML = letterpairs[Math.floor(Math.random() * letterpairs.length)]
+      } else {
+         document.getElementById("case").innerHTML = letterpairs[reviewIndex];
+         document.getElementById("reviewstatus").innerHTML =
+            "Reviewed " + reviewIndex + "/" + letterpairs.length;
+         reviewIndex += 1;
+      }
+   } else {
+      document.getElementById("reviewstatus").innerHTML = ""
+      document.getElementById("case").innerHTML = letterpairs[Math.floor(Math.random() * letterpairs.length)]
+   }
+
 	if (letterpairs.length == 0) {
 		document.getElementById("case").innerHTML = "Select a set"
 	}
