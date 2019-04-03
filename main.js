@@ -86,7 +86,10 @@ function createpairs(value) {
 // selectSet
 function Select(p) {
    // exit review mode when changing target selections
-   review = false;
+   if (review) {
+      review = false;
+      document.getElementById("reviewstatus").innerHTML = "Selection changed, exited review mode";
+   }
 var y = document.getElementById(p)
 if (y.className == "checkboxFalse") {
 	y.className = "checkboxTrue"
